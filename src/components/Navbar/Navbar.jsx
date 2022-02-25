@@ -1,4 +1,5 @@
 import React from "react";
+import CartWidget from "./CartWidget";
 
 const Navbar = () => {
   return (
@@ -41,7 +42,7 @@ const Navbar = () => {
           </svg>
         </button>
         <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-          <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+          <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 text-base md:font-medium">
             <li>
               <a
                 href="#"
@@ -73,6 +74,15 @@ const Navbar = () => {
                 class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Contactanos
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                class="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              >
+                <CartWidget />
               </a>
             </li>
           </ul>

@@ -1,9 +1,13 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import ItemListContainer from './components/ItemListContainer';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   return (
-    <Navbar />
+    <>
+      <Navbar />
+      <ItemListContainer greeting="soy un componente contenedor" />
+    </>
   );
 }
 
