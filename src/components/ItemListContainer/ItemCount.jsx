@@ -16,10 +16,10 @@ const ItemCount = (prop) => {
     }
 
     return (
-        <div className='flex justify-between'>
-            <button onClick={ RemoveItem }>-</button>
+        <div className='flex justify-around items-center py-5 font-extrabold'>
+            <button onClick={ RemoveItem } className="text-xl" >-</button>
             <p>{ count }</p>
-            <button onClick={ AddItem }>+</button>
+            <button onClick={ AddItem } className="text-xl" >+</button>
         </div>
     )
 }

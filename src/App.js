@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <Navbar />
-      <ItemListContainer />
+      <div className="container w-full grid grid-cols-12 mx-auto gap-5">
+        <ItemListContainer />
+      </div>
 
     </>
   );
