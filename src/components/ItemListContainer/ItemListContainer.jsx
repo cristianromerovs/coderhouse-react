@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { stock } from "../data/stock";
-import { listarArray } from "../helpers/listarArray";
+import { stock } from "../data/Stock";
+import { listarArray } from "../helpers/ListarArray";
 import { ItemList } from "./ItemList";
 
 const ItemListContainer = () => {
@@ -20,18 +20,14 @@ const ItemListContainer = () => {
       });
   }, []);
 
-  return (
-    <>
-      {loading ? (
-        <div className=" container mx-auto flex justify-center items-center  py-72">
-          <h3 className="font-bold text-3xl text-gray-900">Cargando...</h3>
-        </div>
-      ) : (
-        <div className="container w-full grid grid-cols-12 mx-auto gap-5">
-          <ItemList items={items} />
-        </div>
-      )}
-    </>
+  return loading ? (
+    <div className=" container mx-auto flex justify-center items-center py-72">
+      <h3 className="font-bold text-3xl text-gray-900">Cargando...</h3>
+    </div>
+  ) : (
+    <div className="container w-full grid grid-cols-12 mx-auto gap-5 md:gap-10">
+      <ItemList items={items} />
+    </div>
   );
 };
 
