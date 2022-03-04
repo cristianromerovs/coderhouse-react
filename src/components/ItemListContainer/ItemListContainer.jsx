@@ -1,25 +1,38 @@
-import ItemCount from "./ItemCount"
+import { useState } from "react";
+import { useEffect } from "react";
+import { stock } from "../data/stock";
+import { listarArray } from "../helpers/listarArray";
+import { ItemList } from "./ItemList";
 
 const ItemListContainer = () => {
-  let img__item1 =
-    "https://hmchile.vtexassets.com/arquivos/ids/3260879-600-900?v=637790853930000000&width=600&height=900&aspect=true";
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  const onAdd = (cantidad) => {
-    cantidad === 1
-      ? console.log(`Agregaste al carrito: ${cantidad} producto.`)
-      : console.log(`Agregaste al carrito: ${cantidad} productos.`);
-  };
+  useEffect(() => {
+    setLoading(true);
+    listarArray(stock)
+      .then((res) => {
+        setItems(res);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {
+        setLoading(false);
+      });
+  }, []);
 
   return (
-    <div className=" bg-white shadow-md rounded flex-col col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3">
-      <img className="w-full" src={img__item1} alt="" />
-      <div className="px-3 pt-3">
-        <p>Sudadera Regular fit</p>
-        <p className="font-bold">$19.990</p>
-      </div>
-      <ItemCount stock={5} initial={1} onAdd={onAdd} />
-    </div>
+    <>
+      {loading ? (
+        <div className=" container mx-auto flex justify-center items-center  py-72">
+          <h3 className="font-bold text-3xl text-gray-900">Cargando...</h3>
+        </div>
+      ) : (
+        <div className="container w-full grid grid-cols-12 mx-auto gap-5">
+          <ItemList items={items} />
+        </div>
+      )}
+    </>
   );
-}
+};
 
-export default ItemListContainer
+export default ItemListContainer;
