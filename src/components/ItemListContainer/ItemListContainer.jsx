@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { stock } from "../data/Stock";
-import { listarArray } from "../helpers/ListarArray";
+import { stock } from "../data/stock";
+import { listarArray } from "../helpers/listarArray";
 import { ItemList } from "./ItemList";
 
 const ItemListContainer = () => {
