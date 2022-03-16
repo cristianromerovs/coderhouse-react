@@ -3,9 +3,6 @@ import ItemCount from "./ItemCount";
 
 export const Item = ({ title, price, img, stock }) => {
     const onAdd = (cantidad) => {
-        // cantidad === 1
-        // ? console.log(`producto agregado ID: ${id}`)
-        // : console.log(`Agregaste al carrito: ${cantidad} productos.`);
         console.log(`Agregaste al carrito: \n${title}\nCantidad: ${cantidad}\nPrecio Unitario: ${price}`);
     };
 

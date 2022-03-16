@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { stock } from "../data/stock";
+import { stock } from "../../data/stock";
 import { listarArray } from "../helpers/listarArray";
 import { ItemList } from "./ItemList";
 
-const ItemListContainer = () => {
+export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -21,7 +21,7 @@ const ItemListContainer = () => {
   }, []);
 
   return loading ? (
-    <div className=" container mx-auto flex justify-center items-center py-72">
+    <div className="container mx-auto flex justify-center items-center py-72">
       <h3 className="font-bold text-3xl text-gray-900">Cargando...</h3>
     </div>
   ) : (
@@ -31,4 +31,3 @@ const ItemListContainer = () => {
   );
 };
 
-export default ItemListContainer;
