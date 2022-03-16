@@ -20,7 +20,7 @@ export const ItemDetailContainer = () => {
     }, []);
 
     return (
-        <div className="">
+        <div className="container mx-auto w-full">
             {
                 loading?
                 <div><h1>Cargando2</h1></div>

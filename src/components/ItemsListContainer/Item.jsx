@@ -7,7 +7,7 @@ export const Item = ({ title, price, img, stock }) => {
     };
 
     return (
-        <div className=" bg-white shadow-md rounded flex-col col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3">
+        <div className="flex-col col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3">
             <img className="w-full" src={img} alt={title} />
                 <div className="px-3 pt-3">
                     <p>{title}</p>
