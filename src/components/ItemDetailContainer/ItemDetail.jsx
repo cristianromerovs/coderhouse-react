@@ -2,8 +2,11 @@ import { SelectSize } from "./SelectSize";
 import ItemCount from "../ItemsListContainer/ItemCount";
 
 export const ItemDetail = ({ title, price, img, stock }) => {
-     
-
+  const onAdd = (cantidad) => {
+    console.log(
+      `Agregaste al carrito: \n${title}\nCantidad: ${cantidad}\nPrecio Unitario: ${price}`
+    );
+  };
 
   return (
     <div className="flex flex-col sm:flex-row col-span-12 mt-10">
@@ -13,10 +16,7 @@ export const ItemDetail = ({ title, price, img, stock }) => {
         <p className="text-xl font-semibold">{price}</p>
         <p className="text-md font-semibold">Stock: {stock}</p>
         <SelectSize />
-        <button className="bg-gray-700 w-full text-white font-semibold mt-10 px-4 py-5 cursor-pointer ease-in-out duration-300 md:py-4 hover:bg-gray-900">
-          Agregar al carro
-        </button>
-        <ItemCount stock={stock} initial={1} /> 
+        <ItemCount stock={stock} initial={1} onAdd={onAdd}/> 
       </div>
     </div>
   );

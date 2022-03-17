@@ -17,19 +17,19 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
   return (
     <>
-      <div className="flex justify-around items-center py-3 font-extrabold">
+      <div className="flex justify-around items-center py-1 mt-10 font-extrabold">
         <button
           disabled={cantidad === 0}
           onClick={RemoveItem}
-          className="text-xl"
+          className="text-md"
         >
           -
         </button>
-        <p>{cantidad}</p>
+        <p className="text-md font-semibold">{cantidad}</p>
         <button
           disabled={cantidad === stock}
           onClick={AddItem}
-          className="text-xl"
+          className="text-md"
         >
           +
         </button>

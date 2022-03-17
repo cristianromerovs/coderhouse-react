@@ -25,7 +25,9 @@ export const ItemDetailContainer = () => {
         <div className="container mx-auto w-full">
             {
                 loading?
-                <div><h1>Cargando2</h1></div>
+                <div className="container mx-auto flex justify-center items-center py-72">
+                    <h3 className="font-bold text-3xl text-gray-900">Cargando...</h3>
+                </div>
                 :
                 <ItemDetail {...item} />
             }
