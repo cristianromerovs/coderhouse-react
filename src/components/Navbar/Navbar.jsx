@@ -1,13 +1,15 @@
 import React from "react";
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="border-gray-200 px-2 sm:px-4 py-7 rounded dark:bg-gray-800">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <a href="/" className="flex">
+        <Link to={`/`} className="flex">
           <span className="navbar__logo text-4xl">GEET.</span>
-        </a>
+        </Link>
+
         <button
           data-collapse-toggle="mobile-menu"
           type="button"
@@ -53,37 +55,68 @@ const Navbar = () => {
               </a>
             </li>
             <li>
-              <a
-                href="/"
+              <button
                 className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                id="user-menu-button"
+                aria-expanded="false"
+                type="button"
+                data-dropdown-toggle="dropdown"
               >
-                Productos
-              </a>
+                Categorias
+              </button>
+              <div
+                className="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                id="dropdown"
+              >
+                <ul className="py-1" aria-labelledby="dropdown">
+                  <li>
+                    <Link
+                      to={`/category/polerones`}
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Polerones
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`/category/poleras`}
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Poleras
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`/category/joggers`}
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Joggers
+                    </Link>
+                  </li>
+                </ul>
+              </div>
             </li>
             <li>
-              <a
-                href="/"
+              <Link to={`/`}
                 className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Sobre nosotros
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/"
+              <Link to={`/`}
                 className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Contactanos
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
-                href="/"
+              <Link to={`/cart`}
                 className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 <CartWidget />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
