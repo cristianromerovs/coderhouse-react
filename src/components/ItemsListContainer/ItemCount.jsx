@@ -1,33 +1,37 @@
 import { useState } from "react";
 
 const ItemCount = ({ stock, initial, onAdd }) => {
-  const [cantidad, setCantidad] = useState(initial);
+  const [count, setCount] = useState(initial);
 
   const AddItem = () => {
-    if (cantidad < stock) {
-      setCantidad(cantidad + 1);
+    if (count < stock) {
+      setCount(count + 1);
     }
   };
 
   const RemoveItem = () => {
-    if (cantidad > 0) {
-      setCantidad(cantidad - 1);
+    if (count > 0) {
+      setCount(count - 1);
     }
   };
+
+  const agregar = () => {
+    onAdd(count);
+  }
 
   return (
     <>
       <div className="flex justify-around items-center py-1 mt-10 font-extrabold">
         <button
-          disabled={cantidad === 0}
+          disabled={count === 0}
           onClick={RemoveItem}
           className="text-md"
         >
           -
         </button>
-        <p className="text-md font-semibold">{cantidad}</p>
+        <p className="text-md font-semibold">{count}</p>
         <button
-          disabled={cantidad === stock}
+          disabled={count === stock}
           onClick={AddItem}
           className="text-md"
         >
@@ -36,8 +40,8 @@ const ItemCount = ({ stock, initial, onAdd }) => {
       </div>
       <div>
         <button
-          disabled={cantidad === 0}
-          onClick={() => onAdd(cantidad)}
+          disabled={count === 0}
+          onClick={ agregar }
           className="bg-gray-700 w-full text-white font-semibold px-4 py-5 cursor-pointer ease-in-out duration-300 md:py-4 hover:bg-gray-900"
         >
           Agregar al carro

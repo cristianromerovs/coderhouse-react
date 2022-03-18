@@ -1,11 +1,16 @@
 import { SelectSize } from "./SelectSize";
 import ItemCount from "../ItemsListContainer/ItemCount";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const ItemDetail = ({ title, price, img1, stock }) => {
+  const [count, setCount] = useState(null);
+
   const onAdd = (cantidad) => {
     console.log(
       `Agregaste al carrito: \n${title}\nCantidad: ${cantidad}\nPrecio Unitario: ${price}`
     );
+    setCount(cantidad);
   };
 
   return (
@@ -16,7 +21,15 @@ export const ItemDetail = ({ title, price, img1, stock }) => {
         <p className="text-xl font-semibold">{price}</p>
         <p className="text-md font-semibold">Stock: {stock}</p>
         <SelectSize />
-        <ItemCount stock={stock} initial={1} onAdd={onAdd}/> 
+        {count ? (
+          <Link to="/carrito">
+            <button className="bg-gray-700 w-full text-white font-semibold mt-7 px-4 py-5 cursor-pointer ease-in-out duration-300 md:py-4 hover:bg-gray-900">
+              Ir al Carrito
+            </button>
+          </Link>
+        ) : (
+          <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+        )}
       </div>
     </div>
   );
