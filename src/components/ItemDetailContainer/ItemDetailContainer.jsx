@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { stock } from "../../data/stock";
-import { getStock } from "../helpers/getStock";
+import { listarArray } from "../helpers/listarArray";
 import { ItemDetail } from "./ItemDetail";
 
 export const ItemDetailContainer = () => {
@@ -11,7 +11,7 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true);
-        getStock(stock)
+        listarArray(stock)
             .then((res) => {
                 setItem(res.find((item) => item.id === parseInt(idItem)));
             })
