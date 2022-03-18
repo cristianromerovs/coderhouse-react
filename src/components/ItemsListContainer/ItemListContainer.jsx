@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import { stock } from "../../data/stock";
 import { listarArray } from "../helpers/listarArray";
 import { ItemList } from "./ItemList";
+import { Loading } from "./Loading";
 
 export const ItemListContainer = () => {
   const [items, setItems] = useState([]);
@@ -26,9 +27,7 @@ export const ItemListContainer = () => {
   }, [idCategory]);
 
   return loading ? (
-    <div className="container mx-auto flex justify-center items-center py-72">
-      <h3 className="font-bold text-3xl text-gray-900">Cargando...</h3>
-    </div>
+    <Loading />
   ) : (
     <div className="container w-full grid grid-cols-12 mx-auto gap-5 md:gap-10">
       <ItemList items={items} />

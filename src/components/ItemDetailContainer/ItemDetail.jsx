@@ -1,5 +1,5 @@
 import { SelectSize } from "./SelectSize";
-import ItemCount from "../ItemsListContainer/ItemCount";
+import { ItemCount } from "../ItemsListContainer/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
