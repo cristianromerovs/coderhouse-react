@@ -65,7 +65,7 @@ const Navbar = () => {
                 Categorias
               </button>
               <div
-                className="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
+                className="hidden z-50 my-4 w-full md:w-32 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600"
                 id="dropdown"
               >
                 <ul className="py-1" aria-labelledby="dropdown">
@@ -99,6 +99,14 @@ const Navbar = () => {
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Camisas
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      to={`/category/parkas`}
+                      className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+                    >
+                      Parkas
                     </Link>
                   </li>
                 </ul>

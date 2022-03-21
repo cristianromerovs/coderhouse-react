@@ -10,10 +10,10 @@ export const stock = [
     },
     {
         id: 2,
-        title: 'Polera Slim Fit',
+        title: 'Polera Manga Larga Regular Fit',
         price: '$5.00',
-        img1: 'https://hmchile.vtexassets.com/arquivos/ids/3674634-600-900?v=637819465162230000&width=600&height=900&aspect=true',
-        img2: 'https://hmchile.vtexassets.com/arquivos/ids/3674641-600-900?v=637819465217200000&width=600&height=900&aspect=true',
+        img1: 'https://hmchile.vtexassets.com/arquivos/ids/3181935-600-900?v=637788914078670000&width=600&height=900&aspect=true',
+        img2: 'https://hmchile.vtexassets.com/arquivos/ids/3181939-600-900?v=637788914115870000&width=600&height=900&aspect=true',
         stock: 8,
         category: 'poleras'
     },
@@ -33,6 +33,24 @@ export const stock = [
         img1: 'https://hmchile.vtexassets.com/arquivos/ids/3606953-600-900?v=637797798971270000&width=600&height=900&aspect=true',
         img2: 'https://hmchile.vtexassets.com/arquivos/ids/3606957-600-900?v=637797799007570000&width=600&height=900&aspect=true',
         stock: 10,
+        category: 'camisas'
+    },
+    {
+        id: 5,
+        title: 'Parka Waterproof',
+        price: '$50.00',
+        img1: 'https://hmchile.vtexassets.com/arquivos/ids/2880066-600-900?v=637775982544830000&width=600&height=900&aspect=true',
+        img2: 'https://hmchile.vtexassets.com/arquivos/ids/2880071-600-900?v=637775982596970000&width=600&height=900&aspect=true',
+        stock: 3,
+        category: 'parkas'
+    },
+    {
+        id: 6,
+        title: 'Camisa Slim Fit',
+        price: '$5.00',
+        img1: 'https://hmchile.vtexassets.com/arquivos/ids/2939127-600-900?v=637783068857030000&width=600&height=900&aspect=true',
+        img2: 'https://hmchile.vtexassets.com/arquivos/ids/2939132-600-900?v=637783068903330000&width=600&height=900&aspect=true',
+        stock: 12,
         category: 'camisas'
     }
 ]
