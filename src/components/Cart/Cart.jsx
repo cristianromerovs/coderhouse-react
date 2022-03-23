@@ -1,11 +1,11 @@
 import { useCartContext } from "../../context/CartContext";
 
 function Cart() {
-  const { cartList, vaciarCart } = useCartContext();
+  const { cartList, vaciarCart } = useCartContext()
   console.log(cartList);
   return (
     <div className="flex flex-col">
-      {cartList.map(item => (
+      { cartList.map(item => (
         <div className="w-52">
           <img className="" src={item.img2} alt="" />
           <p>{item.title}</p>

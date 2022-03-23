@@ -10,12 +10,10 @@ export const ItemDetail = ({ title, price, img1, img2, stock }) => {
   const { agregarCart, cartList } = useCartContext()
 
   const onAdd = cantidad => {
-    console.log(
-      `Agregaste al carrito: \n${title}\nCantidad: ${cantidad}\nPrecio Unitario: ${price}`
-    )
     setCount(cantidad)
     agregarCart({ title, price, img1, img2, stock, cantidad })
   };
+
   console.log(cartList);
 
   return (
