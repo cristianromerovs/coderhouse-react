@@ -1,12 +1,19 @@
 import { useCartContext } from "../../context/CartContext";
 
 function Cart() {
-    const { cartList } = useCartContext();
-    console.log(cartList);
+  const { cartList, vaciarCart } = useCartContext();
+  console.log(cartList);
   return (
-    <div>
-        <h1>Cart</h1>
-        {/* { cartList.map(item => <li> {item.name} </li>) } */}
+    <div className="flex flex-col">
+      {cartList.map(item => (
+        <div className="w-52">
+          <img className="" src={item.img2} alt="" />
+          <p>{item.title}</p>
+          <p>{item.price}</p>
+          <p>{item.cantidad}</p>
+        </div>
+      ))}
+      <button onClick={vaciarCart}>Vaciar Carrito</button>
     </div>
   );
 }

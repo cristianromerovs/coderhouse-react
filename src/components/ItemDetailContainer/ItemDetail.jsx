@@ -2,16 +2,21 @@ import { SelectSize } from "./SelectSize";
 import { ItemCount } from "../ItemsListContainer/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/CartContext";
 
-export const ItemDetail = ({ title, price, img1, stock }) => {
+export const ItemDetail = ({ title, price, img1, img2, stock }) => {
   const [count, setCount] = useState(null);
 
-  const onAdd = (cantidad) => {
+  const { agregarCart, cartList } = useCartContext()
+
+  const onAdd = cantidad => {
     console.log(
       `Agregaste al carrito: \n${title}\nCantidad: ${cantidad}\nPrecio Unitario: ${price}`
-    );
-    setCount(cantidad);
+    )
+    setCount(cantidad)
+    agregarCart({ title, price, img1, img2, stock, cantidad })
   };
+  console.log(cartList);
 
   return (
     <div className="flex flex-col sm:flex-row col-span-12 mt-10">
@@ -22,7 +27,7 @@ export const ItemDetail = ({ title, price, img1, stock }) => {
         <p className="text-md font-semibold">Stock: {stock}</p>
         <SelectSize />
         {count ? (
-          <Link to="/carrito">
+          <Link to="/cart">
             <button className="bg-gray-700 w-full text-white font-semibold mt-7 px-4 py-5 cursor-pointer ease-in-out duration-300 md:py-4 hover:bg-gray-900">
               Ir al Carrito
             </button>

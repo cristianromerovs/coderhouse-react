@@ -3,7 +3,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { ItemListContainer }  from "./components/ItemsListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ItemDetailContainer/ItemDetailContainer";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { CartContextProvider } from './context/CartContext';
+import CartContextProvider from './context/CartContext';
 import Cart from './components/Cart/Cart';
 
 function App() {
