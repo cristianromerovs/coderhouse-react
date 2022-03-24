@@ -2,7 +2,7 @@ import { useCartContext } from "../../context/CartContext";
 
 function Cart() {
   const { cartList, vaciarCart } = useCartContext()
-  console.log(cartList);
+  console.log(cartList)
   return (
     <div className="flex flex-col">
       { cartList.map(item => (
