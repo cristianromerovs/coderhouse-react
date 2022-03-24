@@ -4,14 +4,14 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/CartContext";
 
-export const ItemDetail = ({ title, price, img1, img2, stock }) => {
+export const ItemDetail = ({id, title, price, img1, img2, stock }) => {
   const [count, setCount] = useState(null);
 
   const { agregarCart, cartList } = useCartContext()
 
   const onAdd = cantidad => {
     setCount(cantidad)
-    agregarCart({ title, price, img1, img2, stock, cantidad })
+    agregarCart({id, title, price, img1, img2, stock, cantidad })
   };
 
   console.log(cartList);

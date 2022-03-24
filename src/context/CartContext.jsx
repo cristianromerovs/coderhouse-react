@@ -9,11 +9,20 @@ function CartContextProvider({children}) {
     const [cartList, setCartList] = useState([]);
 
     const agregarCart = (item) => {
-        //if item exist in cartList, not add it again
-        if(cartList.find(cartItem => cartItem.id === item.id)){
-            return;
+        //if item exist in cartList, then update the quantity
+        if(cartList.some(cartItem => cartItem.id === item.id)){
+            console.log("Entro al if");
+            setCartList(cartList.map(cartItem => {
+                if(cartItem.id === item.id){
+                    cartItem.cantidad += item.cantidad;
+                }
+                return cartItem;
+            }
+            ));
+        }else{
+            console.log("Entro al else");
+            setCartList([...cartList, item]);
         }
-        setCartList([ ...cartList, item ]);
     }
     
 

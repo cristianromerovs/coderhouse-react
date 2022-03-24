@@ -6,7 +6,7 @@ function Cart() {
   return (
     <div className="flex flex-col">
       { cartList.map(item => (
-        <div className="w-52">
+        <div className="w-52" key={item.id}>
           <img className="" src={item.img2} alt="" />
           <p>{item.title}</p>
           <p>{item.price}</p>
