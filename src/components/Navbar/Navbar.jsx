@@ -1,14 +1,14 @@
 import React from "react";
 import CartWidget from "./CartWidget";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav className="border-gray-200 px-2 sm:px-4 py-7 rounded dark:bg-gray-800">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
-        <Link to={`/`} className="flex">
+        <NavLink to={`/`} className="flex">
           <span className="navbar__logo text-4xl">GEET.</span>
-        </Link>
+        </NavLink>
 
         <button
           data-collapse-toggle="mobile-menu"
@@ -46,13 +46,13 @@ const Navbar = () => {
         <div className="hidden w-full md:block md:w-auto" id="mobile-menu">
           <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 text-base md:font-medium">
             <li>
-              <a
+              <NavLink to={`/`}
                 href="/"
                 className="block py-2 pr-4 pl-3 text-white font-extrabold bg-violet-500 rounded md:bg-transparent md:text-violet-500 md:p-0 dark:text-white"
                 aria-current="page"
               >
                 Inicio
-              </a>
+              </NavLink>
             </li>
             <li>
               <button
@@ -70,69 +70,69 @@ const Navbar = () => {
               >
                 <ul className="py-1" aria-labelledby="dropdown">
                   <li>
-                    <Link
+                    <NavLink
                       to={`/category/polerones`}
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Polerones
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link
+                    <NavLink
                       to={`/category/poleras`}
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Poleras
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link
+                    <NavLink
                       to={`/category/joggers`}
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Joggers
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link
+                    <NavLink
                       to={`/category/camisas`}
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Camisas
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link
+                    <NavLink
                       to={`/category/parkas`}
                       className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
                     >
                       Parkas
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               </div>
             </li>
             <li>
-              <Link to={`/`}
+              <NavLink to={`/`}
                 className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Sobre nosotros
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to={`/`}
+              <NavLink to={`/`}
                 className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Contactanos
-              </Link>
+              </NavLink>
             </li>
 
             <li>
-              <Link to={`/cart`}
+              <NavLink to={`/cart`}
                 className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 <CartWidget />
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
