@@ -9,7 +9,6 @@ function CartContextProvider({children}) {
     const [cartList, setCartList] = useState([]);
 
     const agregarCart = (item) => {
-        //if item exist in cartList, then update the quantity
         if(cartList.some(cartItem => cartItem.id === item.id)){
             console.log("Entro al if");
             setCartList(cartList.map(cartItem => {
@@ -25,16 +24,21 @@ function CartContextProvider({children}) {
         }
     }
     
-
     const vaciarCart = () => {
         setCartList([]);
+    }
+
+    //precio total de todos los productos en el carrito
+    const precioTotal = () => {
+        return cartList.reduce((acum, prod) => acum + (prod.cantidad * prod.price) , 0)
     }
 
     return (
         <CartContext.Provider value={{
             cartList,
             agregarCart,
-            vaciarCart
+            vaciarCart,
+            precioTotal
         }}>
             {children}
         </CartContext.Provider>
