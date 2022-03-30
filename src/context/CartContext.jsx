@@ -4,7 +4,6 @@ const CartContext = createContext([]);
 
 export const useCartContext = () => useContext(CartContext);
 
-
 function CartContextProvider({children}) {
     const [cartList, setCartList] = useState([]);
 
@@ -19,7 +18,6 @@ function CartContextProvider({children}) {
             }
             ));
         }else{
-            console.log("Entro al else");
             setCartList([...cartList, item]);
         }
     }

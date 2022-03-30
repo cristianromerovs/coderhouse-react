@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { stock } from "../../data/stock";
-import { listarArray } from "../helpers/listarArray";
 import { Loading } from "../ItemsListContainer/Loading";
 import { ItemDetail } from "./ItemDetail";
+import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export const ItemDetailContainer = () => {
     const [item, setItem] = useState([]);
@@ -12,14 +11,12 @@ export const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true);
-        listarArray(stock)
-            .then((res) => {
-                setItem(res.find((item) => item.id === parseInt(idItem)));
-            })
-            .catch((err) => console.log(err))
-            .finally(() => {
-                setLoading(false);
-            })
+        const db = getFirestore();
+        const queryDb = doc(db, "items", idItem);
+        getDoc(queryDb)
+        .then((resp) => setItem({ id: resp.id, ...resp.data() }))
+        .catch((err) => console.log(err))
+        .finally(() =>setLoading(false))
     }, [idItem]);
 
     return (

@@ -7,14 +7,12 @@ import { useCartContext } from "../../context/CartContext";
 export const ItemDetail = ({id, title, price, img1, img2, stock }) => {
   const [count, setCount] = useState(null);
 
-  const { agregarCart, cartList } = useCartContext()
+  const { agregarCart } = useCartContext()
 
   const onAdd = cantidad => {
     setCount(cantidad)
     agregarCart({id, title, price, img1, img2, stock, cantidad })
   };
-
-  console.log(cartList);
 
   return (
     <div className="flex flex-col sm:flex-row col-span-12 mt-10 px-5 md:px-0">
