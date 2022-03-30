@@ -14,8 +14,6 @@ export const ItemDetail = ({id, title, price, img1, img2, stock }) => {
     agregarCart({id, title, price, img1, img2, stock, cantidad })
   };
 
-  console.log(cartList);
-
   return (
     <div className="flex flex-col sm:flex-row col-span-12 mt-10">
       <img src={img1} alt={title} className="w-96 h-auto" />
