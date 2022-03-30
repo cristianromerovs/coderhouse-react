@@ -29,7 +29,7 @@ export const ItemListContainer = () => {
   return loading ? (
     <Loading />
   ) : (
-    <div className="container w-full grid grid-cols-12 mx-auto gap-5 md:gap-10">
+    <div className="md:container w-full grid grid-cols-12 mx-auto gap-5 px-5 md:px-0 md:gap-10">
       <ItemList items={items} />
     </div>
   );
