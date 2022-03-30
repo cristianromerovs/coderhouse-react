@@ -7,7 +7,7 @@ const Navbar = () => {
     <nav className="border-gray-200 px-2 sm:px-4 py-7 rounded dark:bg-gray-800">
       <div className="container flex flex-wrap justify-between items-center mx-auto">
         <NavLink to={`/`} className="flex">
-          <span className="navbar__logo text-4xl">GEET.</span>
+          <span className="navbar__logo text-4xl hover:text-violet-600 ease-in-out duration-300">GEET.</span>
         </NavLink>
 
         <button
@@ -48,7 +48,7 @@ const Navbar = () => {
             <li>
               <NavLink to={`/`}
                 href="/"
-                className="block py-2 pr-4 pl-3 text-white font-extrabold bg-violet-500 rounded md:bg-transparent md:text-violet-500 md:p-0 dark:text-white"
+                className="block py-2 pr-4 pl-3 text-white font-extrabold bg-violet-600 rounded md:bg-transparent md:text-violet-600 md:p-0 dark:text-white"
                 aria-current="page"
               >
                 Inicio
@@ -56,7 +56,7 @@ const Navbar = () => {
             </li>
             <li>
               <button
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
                 id="user-menu-button"
                 aria-expanded="false"
                 type="button"
@@ -114,14 +114,14 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to={`/`}
-                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+                className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
                 Sobre nosotros
               </NavLink>
             </li>
             <li>
               <NavLink to={`/`}
-                className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 Contactanos
               </NavLink>
@@ -129,7 +129,7 @@ const Navbar = () => {
 
             <li>
               <NavLink to={`/cart`}
-                className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-500 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                className="block py-2 pr-4 pl-3 text-gray-700 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-violet-600 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
               >
                 <CartWidget />
               </NavLink>

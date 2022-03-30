@@ -28,9 +28,24 @@ function CartContextProvider({children}) {
         setCartList([]);
     }
 
-    //precio total de todos los productos en el carrito
+    //eliminar producto del carrito
+    const eliminarProducto = (id) => {
+        setCartList(cartList.filter(item => item.id !== id));
+    }
+
+    //total de productos en el carrito
     const precioTotal = () => {
-        return cartList.reduce((acum, prod) => acum + (prod.cantidad * prod.price) , 0)
+        let total = 0;
+
+        var formatter = new Intl.NumberFormat('en-US', {
+            style: 'currency',
+            currency: 'CLP',
+        });
+          
+        cartList.forEach(item => {
+            total += item.price * item.cantidad;
+        });
+        return formatter.format(total);
     }
 
     return (
@@ -38,7 +53,8 @@ function CartContextProvider({children}) {
             cartList,
             agregarCart,
             vaciarCart,
-            precioTotal
+            precioTotal, 
+            eliminarProducto
         }}>
             {children}
         </CartContext.Provider>
