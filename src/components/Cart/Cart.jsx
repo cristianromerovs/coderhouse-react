@@ -3,7 +3,7 @@ import { EmojiSadIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 
 function Cart() {
-  const { cartList, vaciarCart, eliminarProducto, precioTotal } = useCartContext();
+  const { cartList, vaciarCart, eliminarProducto, precioTotal, cantidadTotal } = useCartContext();
 
   return cartList.length ? (
     <div className="container grid grid-cols-12 mx-auto px-5 md:gap-x-5">
@@ -19,8 +19,9 @@ function Cart() {
           <button className="absolute top-2 right-3" onClick={() =>eliminarProducto(item.id)}><XIcon className="h-6 w-6" /></button>
         </div>
       ))}
-      <div className="flex justify-end">
+      <div className="flex flex-col items-end">
         <p className="text-md text-center"><strong>Total:</strong> {precioTotal()}</p>
+        <p className="text-md text-center"><strong>Cantidad de productos:</strong> {cantidadTotal()}</p>
       </div>
       <button className="w-full md:w-1/4 bg-black text-white font-semibold px-4 py-5 cursor-pointer" onClick={vaciarCart}>Vaciar Carrito</button>
       </div>

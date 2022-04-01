@@ -6,6 +6,7 @@ export const useCartContext = () => useContext(CartContext);
 
 function CartContextProvider({children}) {
     const [cartList, setCartList] = useState([]);
+    const [cartTotal, setCartTotal] = useState(0);
 
     const agregarCart = (item) => {
         if(cartList.some(cartItem => cartItem.id === item.id)){
@@ -19,6 +20,7 @@ function CartContextProvider({children}) {
             ));
         }else{
             setCartList([...cartList, item]);
+            setCartTotal(cartTotal+1);
         }
     }
     
@@ -46,13 +48,23 @@ function CartContextProvider({children}) {
         return formatter.format(total);
     }
 
+    //cantidad de productos en el carrito
+    const cantidadTotal = () => {
+        let cantItems = 0;
+        cartList.forEach(item => {
+            cantItems += item.cantidad;
+        });
+        return cantItems;
+    }
+
     return (
         <CartContext.Provider value={{
             cartList,
             agregarCart,
             vaciarCart,
             precioTotal, 
-            eliminarProducto
+            eliminarProducto,
+            cantidadTotal
         }}>
             {children}
         </CartContext.Provider>
