@@ -12,6 +12,9 @@ function Cart() {
       email: '', name: '', phone: ''
     })
 
+    //state orden finalizada
+    const [ordenFinalizada, setOrdenFinalizada] = useState(false)
+
     const generateOrder = async (e) => { 
       e.preventDefault();
       let orden = {}      
@@ -33,7 +36,7 @@ function Cart() {
       addDoc(queryCollection, orden)
       .then(resp => console.log(`Numero de orden: ${resp.id}\nNombre: ${dataForm.name}\nEmail: ${dataForm.email}\nTelefono: ${dataForm.phone}\nTotal: ${precioTotal()}`))
       .catch(err => console.error(err))
-      .finally(() => console.log('termino '))
+      .finally(() => setOrdenFinalizada(true) )
     }
 
     const handleChange = (e) => {
@@ -60,7 +63,7 @@ function Cart() {
                 <strong>Cantidad:</strong> {item.cantidad}
               </p>
               <p className="text-md">
-                <strong>Precio: {item.price}</strong>
+                <strong>Precio unidad: {item.price}</strong>
               </p>
             </div>
             <button
@@ -86,15 +89,9 @@ function Cart() {
           >
             Vaciar Carrito
           </button>
-          {/* <button
-            className="w-full md:w-2/6 bg-violet-700 text-white font-semibold px-4 py-5 cursor-pointer"
-            onClick={generateOrder}
-          >
-            Terminar Compra
-          </button> */}
         </div>
       </div>
-      <div className="col-span-12 md:col-span-4 bg-black min-h-52 mt-5 md:mt-0">
+      <div className="col-span-12 md:col-span-4 bg-black h-72 p-5 mt-5 md:mt-0">
         <form onSubmit={generateOrder} className="flex flex-col">
           <input
             type="text"
@@ -121,7 +118,7 @@ function Cart() {
           />
           <br />
           {/* <button>Generar Orden</button> */}
-          <button className="bg-white">Terminar Compra</button>
+          <button disabled={ordenFinalizada === true} className="bg-white">{ordenFinalizada ? "Gracias" : "Terminar Compra"} </button>
         </form>
       </div>
     </div>
