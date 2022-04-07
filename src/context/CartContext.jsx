@@ -35,17 +35,18 @@ function CartContextProvider({children}) {
 
     //total de productos en el carrito
     const precioTotal = () => {
-        let total = 0;
+        // let total = 0;
 
-        var formatter = new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'CLP',
-        });
+        // var formatter = new Intl.NumberFormat('en-US', {
+        //     style: 'currency',
+        //     currency: 'CLP',
+        // });
           
-        cartList.forEach(item => {
-            total += item.price * item.cantidad;
-        });
-        return formatter.format(total);
+        // cartList.forEach(item => {
+        //     total += item.price * item.cantidad;
+        // });
+        // return formatter.format(total);
+        return cartList.reduce((acum, prod) => acum + (prod.cantidad * prod.price) , 0)
     }
 
     //cantidad de productos en el carrito
