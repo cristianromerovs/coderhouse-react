@@ -31,7 +31,7 @@ function Cart() {
       const db = getFirestore()
       const queryCollection = collection(db, 'orders')
       addDoc(queryCollection, orden)
-      .then(resp => console.log(resp))
+      .then(resp => console.log(`Numero de orden: ${resp.id}\nNombre: ${dataForm.name}\nEmail: ${dataForm.email}\nTelefono: ${dataForm.phone}\nTotal: ${precioTotal()}`))
       .catch(err => console.error(err))
       .finally(() => console.log('termino '))
     }
