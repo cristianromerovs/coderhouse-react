@@ -1,5 +1,3 @@
-import React from 'react'
-
 const About = () => {
   return (
     <div className="container grid grid-cols-12 mx-auto">
