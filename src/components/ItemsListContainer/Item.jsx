@@ -1,6 +1,7 @@
 import { HeartIcon } from "@heroicons/react/outline";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import {clpConverter} from "../helpers/clpConverter";
 
 export const Item = ({ id, title, price, img1, img2 }) => {
   const [like, setLike] = useState(true);
@@ -22,7 +23,7 @@ export const Item = ({ id, title, price, img1, img2 }) => {
       <div className="pt-1 flex flex-row items-center justify-between">
         <div className="flex flex-col">
           <p className="text-sm">{title}</p>
-          <p className="text-sm font-bold">{price}</p>
+          <p className="text-sm font-bold">{clpConverter(price)}</p>
         </div>
         <button onClick={likeItem}>
           <HeartIcon
