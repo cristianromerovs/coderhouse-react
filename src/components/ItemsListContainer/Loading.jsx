@@ -1,5 +1,3 @@
-import React from 'react'
-
 export const Loading = () => {
   return (
     <div className="container mx-auto flex justify-center items-center py-72">

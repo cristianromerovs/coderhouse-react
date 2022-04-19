@@ -1,4 +1,3 @@
-// import { SelectSize } from "./SelectSize";
 import { ItemCount } from "../ItemsListContainer/ItemCount";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -6,7 +5,6 @@ import { useCartContext } from "../../context/CartContext";
 
 export const ItemDetail = ({id, title, price, img1, img2, stock }) => {
   const [count, setCount] = useState(null);
-
   const { agregarCart } = useCartContext()
 
   const onAdd = cantidad => {
@@ -21,7 +19,6 @@ export const ItemDetail = ({id, title, price, img1, img2, stock }) => {
         <h1 className="text-2xl font-normal">{title}</h1>
         <p className="text-xl font-semibold">{price}</p>
         <p className="text-md font-semibold">Stock: {stock}</p>
-        {/* <SelectSize /> */}
         {count ? (
           <Link to="/cart">
             <button className="bg-gray-700 w-full text-white font-semibold mt-7 px-4 py-5 cursor-pointer ease-in-out duration-300 md:py-4 hover:bg-gray-900">

@@ -4,3 +4,11 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 900;
 }
+
+.about__sideImage {
+    background-image: url("https://images.unsplash.com/photo-1634295889011-439a70d7799b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80");
+    height: 500px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

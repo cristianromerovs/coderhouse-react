@@ -8,13 +8,11 @@ export const ItemCount = ({ stock, initial, onAdd }) => {
       setCount(count + 1);
     }
   };
-
   const RemoveItem = () => {
     if (count > 0) {
       setCount(count - 1);
     }
   };
-
   const agregar = () => {
     onAdd(count);
   }

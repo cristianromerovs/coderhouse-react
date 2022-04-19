@@ -1,5 +1,4 @@
 import { useCartContext } from "../../context/CartContext";
-import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/solid";
 
 const CartWidget = () => {
