@@ -1,4 +1,5 @@
 import { createContext, useState, useContext } from "react";
+import { clpConverter } from "../components/helpers/clpConverter";
 
 const CartContext = createContext([]);
 
@@ -35,18 +36,7 @@ function CartContextProvider({children}) {
 
     //total de productos en el carrito
     const precioTotal = () => {
-        // let total = 0;
-
-        // var formatter = new Intl.NumberFormat('en-US', {
-        //     style: 'currency',
-        //     currency: 'CLP',
-        // });
-          
-        // cartList.forEach(item => {
-        //     total += item.price * item.cantidad;
-        // });
-        // return formatter.format(total);
-        return cartList.reduce((acum, prod) => acum + (prod.cantidad * prod.price) , 0)
+        return clpConverter(cartList.reduce((acum, prod) => acum + (prod.cantidad * prod.price) , 0))
     }
 
     //cantidad de productos en el carrito

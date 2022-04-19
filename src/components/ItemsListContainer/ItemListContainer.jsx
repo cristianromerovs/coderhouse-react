@@ -16,24 +16,6 @@ export const ItemListContainer = () => {
   const [loading, setLoading] = useState(false);
   const { idCategory } = useParams();
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   listarArray(stock)
-  //     .then((res) => {
-  //       idCategory ?
-  //       setItems(res.filter(item => item.category === idCategory))
-  //       :
-  //       setItems(res);
-  //     })
-  //     .catch((err) => console.log(err))
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, [idCategory]);
-
-  // TODAS
-  
-
   useEffect(() => {
     setLoading(true);
     const db = getFirestore()
@@ -51,24 +33,7 @@ export const ItemListContainer = () => {
         .catch(err => console.log(err))
         .finally(()=> setLoading(false))             
     }
-
 }, [idCategory])
-
-
-  // FILTRADO
-  // useEffect(() => {
-  //   const db = getFirestore();
-  //   const queryCollection = collection(db, "items")
-  //   const queryFilter = query(queryCollection, where('price', '==', 5000))
-  //   getDocs(queryFilter)
-  //   .then((resp) =>
-  //     setItems(resp.docs.map((item) => ({ id: item.id, ...item.data() })))
-  //   )
-  //   .catch((err) => console.log(err))
-  //   .finally(() => {
-  //     setLoading(false);
-  //   });
-  // }, []);
 
   return loading ? (
     <Loading />

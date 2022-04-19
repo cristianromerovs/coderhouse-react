@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useState } from "react"
 import { getCurrentDate } from "../helpers/getCurrentDate";
+import {clpConverter} from "../helpers/clpConverter";
 
 function Cart() {
   const { cartList, vaciarCart, eliminarProducto, precioTotal, cantidadTotal } =
@@ -35,9 +36,8 @@ function Cart() {
       addDoc(queryCollection, orden)
       .then((resp) => {
         vaciarCart();
-        alert(`Numero de orden: ${resp.id}\nNombre: ${dataForm.name}\nEmail: ${dataForm.email}\nTelefono: ${dataForm.phone}\nFecha: ${getCurrentDate()} \nTotal: ${precioTotal()}`)
+        alert(`Numero de orden: ${resp.id}\nNombre cliente: ${dataForm.name}\nEmail cliente: ${dataForm.email}\nTeléfono cliente: ${dataForm.phone}\nFecha de compra: ${getCurrentDate()} \nTotal boleta: ${precioTotal()}`)
       })
-      // .then(resp => console.log(`Numero de orden: ${resp.id}\nNombre: ${dataForm.name}\nEmail: ${dataForm.email}\nTelefono: ${dataForm.phone}\nTotal: ${precioTotal()}`))
       .catch(err => console.error(err))
       .finally(() => setOrdenFinalizada(true) )
     }
@@ -50,7 +50,7 @@ function Cart() {
   }
 
   return cartList.length ? (
-    <div className="container grid grid-cols-12 mx-auto px-5 md:gap-x-5">
+    <div className="container grid grid-cols-12 mx-auto px-5 md:gap-x-5 relative">
       <div className="flex flex-col items-end col-span-12 md:col-span-8 gap-y-5">
         {cartList.map((item) => (
           <div
@@ -66,7 +66,7 @@ function Cart() {
                 <strong>Cantidad:</strong> {item.cantidad}
               </p>
               <p className="text-md">
-                <strong>Precio unidad: {item.price}</strong>
+                <strong>Precio unidad: {clpConverter(item.price)}</strong>
               </p>
             </div>
             <button
@@ -94,8 +94,11 @@ function Cart() {
           </button>
         </div>
       </div>
-      <div className="col-span-12 md:col-span-4 bg-gray-200 h-100 p-5 mt-5 md:mt-0">
-        <form onSubmit={generateOrder} className="flex flex-col justify-around h-full">
+      <div className="col-span-12 md:col-span-4 mt-5 md:mt-0">
+        <form
+          onSubmit={generateOrder}
+          className="flex flex-col bg-gray-200 h-62 p-5"
+        >
           <input
             type="text"
             name="name"
@@ -108,7 +111,7 @@ function Cart() {
           <input
             type="text"
             name="phone"
-            className="w-full h-16 border-0"
+            className="w-full h-16 border-0 my-5"
             required
             placeholder="telephone: +56912345678"
             value={dataForm.phone}
@@ -125,9 +128,9 @@ function Cart() {
           />
           <button
             disabled={ordenFinalizada === true}
-            className=" bg-violet-700 hover:bg-violet-600 py-5 h-16 text-white font-semibold cursor-pointer"
+            className=" bg-violet-700 hover:bg-violet-600 py-5 h-16 mt-5 text-white font-semibold cursor-pointer"
           >
-            {ordenFinalizada ? "Gracias" : "Terminar Compra"}{" "}
+            {ordenFinalizada ? "Gracias" : "Terminar Compra"}
           </button>
         </form>
       </div>
