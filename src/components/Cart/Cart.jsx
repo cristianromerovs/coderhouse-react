@@ -3,6 +3,7 @@ import { EmojiSadIcon, XIcon } from "@heroicons/react/outline";
 import { Link } from "react-router-dom";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 import { useState } from "react"
+import { getCurrentDate } from "../helpers/getCurrentDate";
 
 function Cart() {
   const { cartList, vaciarCart, eliminarProducto, precioTotal, cantidadTotal } =
@@ -17,24 +18,26 @@ function Cart() {
 
     const generateOrder = async (e) => { 
       e.preventDefault();
-      let orden = {}      
+      let orden = {};
 
-      orden.buyer = dataForm
+      orden.buyer = dataForm;
       orden.total = precioTotal();
 
       orden.items = cartList.map(cartItem => {
           const id = cartItem.id;
           const nombre = cartItem.title;
           const precio = cartItem.price * cartItem.cantidad;
-          
           return {id, nombre, precio}   
       })
-      console.log(orden)
 
       const db = getFirestore()
       const queryCollection = collection(db, 'orders')
       addDoc(queryCollection, orden)
-      .then(resp => console.log(`Numero de orden: ${resp.id}\nNombre: ${dataForm.name}\nEmail: ${dataForm.email}\nTelefono: ${dataForm.phone}\nTotal: ${precioTotal()}`))
+      .then((resp) => {
+        vaciarCart();
+        alert(`Numero de orden: ${resp.id}\nNombre: ${dataForm.name}\nEmail: ${dataForm.email}\nTelefono: ${dataForm.phone}\nFecha: ${getCurrentDate()} \nTotal: ${precioTotal()}`)
+      })
+      // .then(resp => console.log(`Numero de orden: ${resp.id}\nNombre: ${dataForm.name}\nEmail: ${dataForm.email}\nTelefono: ${dataForm.phone}\nTotal: ${precioTotal()}`))
       .catch(err => console.error(err))
       .finally(() => setOrdenFinalizada(true) )
     }
@@ -91,34 +94,41 @@ function Cart() {
           </button>
         </div>
       </div>
-      <div className="col-span-12 md:col-span-4 bg-black h-72 p-5 mt-5 md:mt-0">
-        <form onSubmit={generateOrder} className="flex flex-col">
+      <div className="col-span-12 md:col-span-4 bg-gray-200 h-100 p-5 mt-5 md:mt-0">
+        <form onSubmit={generateOrder} className="flex flex-col justify-around h-full">
           <input
             type="text"
             name="name"
-            placeholder="name"
+            className="w-full h-16 border-0"
+            required
+            placeholder="name: Richard Mendoza"
             value={dataForm.name}
             onChange={handleChange}
           />
-          <br />
           <input
             type="text"
             name="phone"
-            placeholder="tel"
+            className="w-full h-16 border-0"
+            required
+            placeholder="telephone: +56912345678"
             value={dataForm.phone}
             onChange={handleChange}
           />
-          <br />
           <input
             type="email"
             name="email"
-            placeholder="email"
+            className="w-full h-16 border-0"
+            required
+            placeholder="email: youremail@email.com"
             value={dataForm.email}
             onChange={handleChange}
           />
-          <br />
-          {/* <button>Generar Orden</button> */}
-          <button disabled={ordenFinalizada === true} className="bg-white">{ordenFinalizada ? "Gracias" : "Terminar Compra"} </button>
+          <button
+            disabled={ordenFinalizada === true}
+            className=" bg-violet-700 hover:bg-violet-600 py-5 h-16 text-white font-semibold cursor-pointer"
+          >
+            {ordenFinalizada ? "Gracias" : "Terminar Compra"}{" "}
+          </button>
         </form>
       </div>
     </div>
